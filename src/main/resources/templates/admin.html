@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Head section remains the same until the button styles -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syncopate:wght@400;700&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>EventMaster Neo | Quantum User Management</title>
+
+    <style>
+        /* Previous animations and base styles remain the same */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(99, 102, 241, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f766e, #0369a1);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #e2e8f0;
+        }
+
+        .neo-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            box-shadow:
+                    0 0 20px rgba(99, 102, 241, 0.2),
+                    inset 0 0 20px rgba(99, 102, 241, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .neo-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.8);
+            box-shadow:
+                    0 0 30px rgba(99, 102, 241, 0.4),
+                    inset 0 0 30px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Updated cyber-button styles with darker gradients */
+        .cyber-button {
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            font-family: 'Share Tech Mono', monospace;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Individual button variations with darker colors */
+        .cyber-button[href*="add"] {
+            background: linear-gradient(45deg, #7f1d1d, #1e3a8a);
+        }
+
+        .cyber-button[href*="search"] {
+            background: linear-gradient(45deg, #1e3a8a, #3730a3);
+        }
+
+        .cyber-button[href*="logout"] {
+            background: linear-gradient(45deg, #134e4a, #164e63);
+        }
+
+        .cyber-button[href*="upload"] {
+            background: linear-gradient(45deg, #831843, #881337);
+        }
+
+        .cyber-button[href*="download"] {
+            background: linear-gradient(45deg, #312e81, #4c1d95);
+        }
+
+        .cyber-button[href*="edit"] {
+            background: linear-gradient(45deg, #064e3b, #166534);
+        }
+
+        /* Style for the delete/purge button */
+        form .cyber-button {
+            background: linear-gradient(45deg, #7f1d1d, #4c1d95);
+        }
+
+        .cyber-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .cyber-button:hover {
+            transform: scale(1.05);
+            animation: pulse 1.5s infinite;
+        }
+
+        .cyber-button:hover::before {
+            transform: rotate(45deg) translateY(-100%);
+        }
+
+        .glitch-text {
+            position: relative;
+            animation: glitch 5s infinite;
+            text-shadow:
+                    3px 3px 0 rgba(99, 102, 241, 0.5),
+                    -3px -3px 0 rgba(244, 63, 94, 0.5);
+        }
+
+        .header-container {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .logo-container {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .grid-bg {
+            background-image: radial-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+    </style>
+</head>
+<!-- Rest of the HTML remains exactly the same -->
+<body class="min-h-screen grid-bg">
+<header class="fixed top-0 left-0 right-0 z-50 header-container">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <div class="logo-container flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-lg bg-indigo-600 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold glitch-text font-['Syncopate']">EVENT_MASTER</h1>
+            </div>
+
+            <div class="flex space-x-4">
+                <a th:href="@{/admin/add}" class="cyber-button px-6 py-3 rounded-lg text-white">
+                    IGNITE NEW_USER
+                </a>
+                <a th:href="@{/admin/search}" class="cyber-button px-6 py-3 rounded-lg text-white">
+                    SCAN DATABASE
+                </a>
+                <a th:href="@{/logout}" class="cyber-button px-6 py-3 rounded-lg text-white">
+                    TERMINATE SESSION
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="pt-28 max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center mb-12">
+        <h2 class="text-4xl font-bold glitch-text font-['Rajdhani']">QUANTUM_CONTROL_PANEL</h2>
+        <div class="flex space-x-4">
+            <a th:href="@{/admin/upload/users}" class="cyber-button px-6 py-3 rounded-lg text-white">
+                UPLOAD_USERS
+            </a>
+            <a th:href="@{/admin/download/users}" class="cyber-button px-6 py-3 rounded-lg text-white">
+                DOWNLOAD_USERS
+            </a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div th:each="user : ${users}" class="neo-card rounded-xl p-6">
+            <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-indigo-400 font-['Rajdhani']" th:text="${user.username}"></h3>
+                    <div class="w-10 h-10 rounded-full bg-indigo-600/30 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-sm">
+                        <span class="text-indigo-400 font-medium">IDENTITY:</span>
+                        <span class="ml-2" th:text="${user.firstName + ' ' + user.lastName}"></span>
+                    </p>
+                    <p class="text-sm">
+                        <span class="text-indigo-400 font-medium">COMMS:</span>
+                        <span class="ml-2" th:text="${user.email}"></span>
+                    </p>
+                    <p class="text-sm">
+                        <span class="text-indigo-400 font-medium">SIGNAL:</span>
+                        <span class="ml-2" th:text="${user.phoneNumber}"></span>
+                    </p>
+                </div>
+                <div class="flex justify-between pt-4">
+                    <a th:href="@{/admin/users/edit/{id}(id=${user.id})}"
+                       class="cyber-button px-4 py-2 rounded-md text-sm">
+                        MODIFY
+                    </a>
+                    <form th:action="@{/admin/users/delete/{id}(id=${user.id})}" method="post" class="inline">
+                        <button type="submit" class="cyber-button px-4 py-2 rounded-md text-sm">
+                            PURGE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="mt-16 py-8 text-center text-indigo-400 text-sm font-['Share Tech Mono']">
+    <p>SYSTEM.COPYRIGHT © 2024 EVENT_MASTER_PROTOCOL</p>
+    <p class="mt-2">ALL_RIGHTS_SECURED_IN_QUANTUM_VAULT</p>
+</footer>
+</body>
+</html>
