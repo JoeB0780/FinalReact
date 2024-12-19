@@ -1,0 +1,113 @@
+/* Full-page SignIn Component CSS */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #0f3460, #162447);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+  height: 100vh;
+  overflow: hidden;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.full-page {
+  text-align: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.signin-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.signin-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #b8c1ec;
+  line-height: 1.6;
+}
+
+.signin-error {
+  color: #ff4f4f;
+  background: rgba(255, 79, 79, 0.1);
+  padding: 0.75rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.signin-input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(15, 52, 96, 0.8);
+  color: #ffffff;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.7);
+  transition: background 0.3s, box-shadow 0.3s;
+  width: 80%;
+  max-width: 400px;
+}
+
+.signin-input::placeholder {
+  color: #d9d9d9;
+}
+
+.signin-input:focus {
+  outline: none;
+  background: rgba(15, 52, 96, 1);
+  box-shadow: 0 0 10px rgba(15, 52, 96, 0.8);
+}
+
+.signin-button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background: linear-gradient(45deg, #1a1a2e, #162447, #0f3460);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.signin-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #162447, #0f3460, #1a1a2e);
+}
+
+.signin-footer {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #b8c1ec;
+}
+
+.signin-link {
+  color: #1d98ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.signin-link:hover {
+  color: #53a9ff;
+}

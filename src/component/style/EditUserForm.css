@@ -1,0 +1,100 @@
+/* Base Styling for the Container */
+.edit-user-container {
+  background-color: #f4f7fc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+/* Header Styling */
+.edit-user-container h2 {
+  color: #334e68;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form Styling */
+.edit-user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input and Select Styling */
+.edit-user-form label {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+.edit-user-form input,
+.edit-user-form select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* Read-Only Input Styling */
+.readonly-input {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+/* Button Styling */
+.save-button,
+.cancel-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  width: 48%;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #e53935;
+}
+
+/* Form Actions Section */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-user-container {
+    padding: 15px;
+  }
+
+  .edit-user-form {
+    gap: 15px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,97 @@
+.dashboard-container {
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: #f7f9fc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header {
+  text-align: center;
+  color: #4b6584;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: #3867d6;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.profile-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 2px solid #3867d6;
+}
+
+.user-details p {
+  margin: 5px 0;
+  color: #4b6584;
+}
+
+.event-management-section {
+  margin: 20px 0;
+}
+
+.event-management-section h2 {
+  color: #3867d6;
+  margin-bottom: 10px;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-item {
+  margin: 10px 0;
+  padding: 15px;
+  border: 1px solid #d1d8e0;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.event-item h3 {
+  color: #4b6584;
+}
+
+.create-event-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #20bf6b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-event-button:hover {
+  background-color: #0fb06a;
+}
+
+.admin-actions {
+  margin: 20px 0;
+}
+
+.logout-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #eb3b5a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #fa163f;
+}
