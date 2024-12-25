@@ -1,192 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-
-:root {
-  --primary-color: #4a90e2;
-  --secondary-color: #357abd;
-  --background-color: #f4f6f9;
-  --text-color: #2c3e50;
-  --error-color: #e74c3c;
-  --gradient-primary: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-  --gradient-hover: linear-gradient(135deg, #357abd 0%, #2980b9 100%);
-  --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-elevated: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-* {
-  box-sizing: border-box;
+/* Make sure the body and HTML take up the full height of the screen */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Ensure the signup container takes full height */
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: var(--background-color);
-  background-image:
-    linear-gradient(
-      45deg,
-      rgba(74, 144, 226, 0.1) 0%,
-      rgba(53, 122, 189, 0.1) 100%
-    );
-  perspective: 1000px;
-  font-family: 'Inter', sans-serif;
+  height: 100%; /* Full height of the screen */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.signup-form {
-  background-color: white;
-  border-radius: 16px;
-  box-shadow: var(--shadow-elevated);
-  padding: 40px;
+/* Signup card styling */
+.signup-card {
   width: 100%;
-  max-width: 500px;
-  transform: rotateX(10deg) scale(0.95);
-  opacity: 0.9;
-  border: 1px solid rgba(74, 144, 226, 0.1);
+  max-width: 800px; /* Max width of the form */
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
 }
 
-.signup-form:hover {
-  transform: rotateX(0) scale(1);
-  opacity: 1;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+/* Ensure the form doesn't require scrolling */
+.signup-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.signup-title {
-  text-align: center;
-  color: var(--text-color);
-  margin-bottom: 30px;
-  font-weight: 800;
-  position: relative;
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
 }
 
-.signup-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--gradient-primary);
-  border-radius: 2px;
+.left-column, .right-column {
+  width: 48%;
 }
 
+/* Make sure form inputs fill the available space */
 .form-group {
-  position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .form-input, .form-select {
   width: 100%;
-  padding: 12px 15px;
-  border: 2px solid rgba(74, 144, 226, 0.2);
-  border-radius: 8px;
-  font-size: 14px;
-  color: var(--text-color);
-  outline: none;
-  background-color: #f9fbfd;
-}
-
-.form-input:focus, .form-select:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
-}
-
-.input-error {
-  border-color: var(--error-color);
-  animation: shake 0.3s linear;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  10%, 90% { transform: translateX(-2px); }
-  20%, 80% { transform: translateX(4px); }
-  30%, 50%, 70% { transform: translateX(-4px); }
-  40%, 60% { transform: translateX(4px); }
-}
-
-.error-text {
-  color: var(--error-color);
-  font-size: 0.8em;
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  opacity: 0.8;
-}
-
-.password-group {
-  position: relative;
-}
-
-.password-toggle {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: var(--primary-color);
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.password-toggle:hover {
-  opacity: 1;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .signup-button {
   width: 100%;
-  padding: 14px;
-  background: var(--gradient-primary);
+  padding: 15px;
+  background-color: #00CED1;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  box-shadow: var(--shadow-subtle);
+  transition: background-color 0.3s ease;
 }
 
 .signup-button:hover {
-  background: var(--gradient-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(53, 122, 189, 0.4);
+  background-color: #00b2b2;
 }
 
-.signup-button:disabled {
-  background: linear-gradient(135deg, #a0a0a0 0%, #8c8c8c 100%);
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
+/* Styling the link */
 .signin-link {
   text-align: center;
-  margin-top: 20px;
-  color: var(--text-color);
-  opacity: 0.8;
+  margin-top: 10px;
 }
 
 .signin-link a {
-  color: var(--primary-color);
+  color: #00CED1;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
 }
 
-.signin-link a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
+.error-message {
+  color: red;
+  margin-bottom: 15px;
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 600px) {
-  .signup-form {
-    margin: 20px;
-    padding: 25px;
-    max-width: 100%;
+.signup-button {
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .left-column, .right-column {
+    width: 100%;
   }
 }

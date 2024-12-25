@@ -55,10 +55,15 @@ const SignIn = () => {
           Forgot Password?
         </Link>
       </div>
+
+      {/* Button to navigate to the landing page */}
+      <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <Link to="/" className="signin-button" style={{ padding: "10px 20px", backgroundColor: "#00CED1", color: "#fff", borderRadius: "5px", textDecoration: "none", fontWeight: "bold" }}>
+          Back to Landing Page
+        </Link>
+      </div>
     </div>
   );
 };
-
-
 
 export default SignIn;

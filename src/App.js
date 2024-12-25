@@ -10,9 +10,10 @@ import EditUserForm from "./component/EditUserForm";
 import AddUserForm from "./component/AddUserForm";
 import ResetPassword from "./component/ResetPassword";
 import ForgotPassword from "./component/ForgotPassword";
-import  Settings from "./component/Settings";
+import Settings from "./component/Settings";
 import Dashboard from "./component/Dashboard";
-
+import ManageEvents from "./component/ManageEvents";
+import CreateEvent from "./component/CreateEvent";
 
 const App = () => (
   <AuthProvider>
@@ -26,10 +27,11 @@ const App = () => (
         <Route path="/admin/users" element={<EventUsersList />} />
         <Route path="/admin/edit-user-form" element={<EditUserForm />} />
         <Route path="/admin/add-user-form" element={<AddUserForm />} />
-        <Route path="/ResetPassword" element={<ResetPassword />} />
-        <Route path="/ForgotPassword" element={<ForgotPassword />} />
-        <Route path="/Settings" element={<Settings />} />
-
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/manage-events" element={<ManageEvents />} />
+        <Route path="/create-event" element={<CreateEvent />} />
       </Routes>
     </Router>
   </AuthProvider>
